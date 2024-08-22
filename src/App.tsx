@@ -6,7 +6,8 @@ import { Store } from "./pages/store.tsx";
 import { About } from "./pages/about.tsx";
 import { Navbar } from "./components/navbar.tsx";
 import { ShoppingCartProvider } from "./context/ShoppingCartContext.tsx";
-
+import './index.css'
+ 
 function App() {
   return (
     <ShoppingCartProvider>
