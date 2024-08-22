@@ -3,24 +3,72 @@
         "id": 1,
         "name": "Graphic card 1",
         "price": 305.99,
-        "imgUrl": "/ShoppingCart/images/img1.png"
+        "imgUrl": "./images/img1.png"
     },
     {
         "id": 2,
         "name": "Graphic card 2",
         "price": 650.99,
-        "imgUrl": "/ShoppingCart/images/img2.png"
+        "imgUrl": "./images/img2.png"
     },
     {
         "id": 3,
         "name": "Graphic card 3",
         "price": 899.99,
-        "imgUrl": "/ShoppingCart/images/img3.png"
+        "imgUrl": "./images/img3.png"
     },
     {
         "id": 4,
         "name": "Graphic card 4",
         "price": 479.99,
-        "imgUrl": "/ShoppingCart/images/img4.png"
+        "imgUrl": "./images/img4.png"
+    },
+    {
+        "id": 5,
+        "name": "",
+        "price": 0,
+        "imgUrl": ""
+    },
+    {
+        "id": 6,
+        "name": "",
+        "price": 0,
+        "imgUrl": ""
+    },
+    {
+        "id": 7,
+        "name": "",
+        "price": 0,
+        "imgUrl": ""
+    },
+    {
+        "id": 8,
+        "name": "",
+        "price": 0,
+        "imgUrl": ""
+    },
+    {
+        "id": 9,
+        "name": "",
+        "price": 0,
+        "imgUrl": ""
+    },
+    {
+        "id": 10,
+        "name": "",
+        "price": 0,
+        "imgUrl": ""
+    },
+    {
+        "id": 11,
+        "name": "",
+        "price": 0,
+        "imgUrl": ""
+    },
+    {
+        "id": 12,
+        "name": "",
+        "price": 0,
+        "imgUrl": ""
     }
 ]
