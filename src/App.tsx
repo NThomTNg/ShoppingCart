@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Home } from "./pages/home.tsx";
 import { Store } from "./pages/store.tsx";
 import { About } from "./pages/about.tsx";
-import { Navbar } from "./components/navbar.tsx";
+import { Navbar } from "./components/navbar/navbar.tsx";
 import { ShoppingCartProvider } from "./context/ShoppingCartContext.tsx";
 import './index.css'
  

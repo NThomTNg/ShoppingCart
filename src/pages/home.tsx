@@ -1,6 +1,7 @@
-import React from 'react';
 import { Container, Row, Col, Card, Button } from 'react-bootstrap';
 import backgroundImage from '/images/front.jpg';
+import { Link } from 'react-router-dom';
+import featuredProducts from '../data/featured';
 
 export function Home() {
     return (
@@ -27,16 +28,23 @@ export function Home() {
             <Container className="my-5">
                 <h2 className="text-center mb-4">Featured Products</h2>
                 <Row>
-                    {[1, 2, 3, 4].map((product) => (
-                        <Col key={product} md={3} className="mb-4">
+                    {featuredProducts.map((product) => (
+                        <Col key={product.id} md={3} className="mb-4">
                             <Card>
-                                <Card.Img variant="top" src={`${product}`} />
+                                <Card.Img
+                                variant="top"
+                                src={product.imageUrl}
+                                style={{
+                                    width: '100%',
+                                    height: '250px',
+                                    objectFit: 'cover'
+                                }} />
                                 <Card.Body>
-                                    <Card.Title>Product {product}</Card.Title>
+                                    <Card.Title>{product.name}</Card.Title>
                                     <Card.Text>
-                                        Description of product ...
+                                        {product.description}
                                     </Card.Text>
-                                    <Button variant="primary">View Details</Button>
+                                    <Button variant="info">View Details</Button>
                                 </Card.Body>
                             </Card>
                         </Col>
@@ -49,7 +57,7 @@ export function Home() {
                     <Col className="text-center">
                         <h2>Ready to build your dream PC?</h2>
                         <p>We have all the components you need to get started.</p>
-                        <Button variant="success" size="lg">Start Your Build</Button>
+                        <Link to="/store" className="btn btn-info btn-lg">Start Your Build</Link>
                     </Col>
                 </Row>
             </Container>

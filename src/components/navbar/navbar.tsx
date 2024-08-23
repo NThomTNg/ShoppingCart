@@ -1,7 +1,8 @@
 import { Container, Nav, Navbar as NavbarBs } from "react-bootstrap"
 import { Button } from "react-bootstrap"
 import { NavLink } from "react-router-dom"
-import { useShoppingCart } from "../context/ShoppingCartContext";
+import { useShoppingCart } from "../../context/ShoppingCartContext";
+import './Navbar.css';
 
 /**Navigation bar for the application */
 export function Navbar () {
@@ -12,17 +13,17 @@ export function Navbar () {
     <NavbarBs sticky="top" className="bg-white shadow-sm mb-3"> 
         <Container>
             <Nav>
-                <Nav.Link to ="/" as ={NavLink}>
+                <Nav.Link to ="/" as ={NavLink} className="text-dark hover-underline-animation">
                 Home
                 </Nav.Link>
             </Nav>
             <Nav>
-                <Nav.Link to ="/store" as ={NavLink}>
+                <Nav.Link to ="/store" as ={NavLink} className="text-dark hover-underline-animation">
                 Store
                 </Nav.Link>
             </Nav>
             <Nav>
-                <Nav.Link to ="/about" as ={NavLink}>
+                <Nav.Link to ="/about" as ={NavLink} className="text-dark hover-underline-animation">
                 About
                 </Nav.Link>
             </Nav>
@@ -31,14 +32,14 @@ export function Navbar () {
             {cartQuantity > 0 && ( 
             <Button 
             onClick={openCart}
-            style = {{ width: "3rem", height: "3rem", position: "relative" }}
-            variant="outline-primary" 
+            style = {{ width: "3rem", height: "3rem", position: "relative", }}
+            variant="outline-success" 
             className="rounded-circle"
             >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 576 512"
-              fill="currentColor"
+              fill="green"
             >
               <path d="M96 0C107.5 0 117.4 8.19 119.6 19.51L121.1 
                 32H541.8C562.1 32 578.3 52.25 572.6
@@ -56,7 +57,7 @@ export function Navbar () {
             </svg>
 
             {/* Cart quantity badge */}
-            <div className="rounded-circle bg-danger d-flex
+            <div className="rounded-circle bg-info d-flex
             justify-content-center align-items-center"
             style={{ 
                 color: "white", 
