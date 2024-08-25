@@ -36,7 +36,7 @@ export function Home() {
                                 src={product.imageUrl}
                                 style={{
                                     width: '100%',
-                                    height: '250px',
+                                    height: '250px', 
                                     objectFit: 'cover'
                                 }} />
                                 <Card.Body>

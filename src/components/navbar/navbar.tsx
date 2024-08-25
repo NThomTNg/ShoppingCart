@@ -24,7 +24,7 @@ export function Navbar () {
             </Nav>
             <Nav>
                 <Nav.Link to ="/about" as ={NavLink} className="text-dark hover-underline-animation">
-                About
+                About Us
                 </Nav.Link>
             </Nav>
 

@@ -25,49 +25,49 @@
     },
     {
         "id": 5,
-        "name": "",
+        "name": "CPU Model 1",
         "price": 0,
         "imgUrl": ""
     },
     {
         "id": 6,
-        "name": "",
+        "name": "CPU Model 2",
         "price": 0,
         "imgUrl": ""
     },
     {
         "id": 7,
-        "name": "",
+        "name": "CPU Model 3",
         "price": 0,
         "imgUrl": ""
     },
     {
         "id": 8,
-        "name": "",
+        "name": "Motherboard Model 1",
         "price": 0,
         "imgUrl": ""
     },
     {
         "id": 9,
-        "name": "",
+        "name": "Motherboard Model 1",
         "price": 0,
         "imgUrl": ""
     },
     {
         "id": 10,
-        "name": "",
+        "name": "RAM Model 1",
         "price": 0,
         "imgUrl": ""
     },
     {
         "id": 11,
-        "name": "",
+        "name": "RAM Model 2",
         "price": 0,
         "imgUrl": ""
     },
     {
         "id": 12,
-        "name": "",
+        "name": "Computer Case Model 1001",
         "price": 0,
         "imgUrl": ""
     }

@@ -27,11 +27,11 @@ export function CartItem({ id, quantity }: CartItemProps) {
 
             {/**Details of Item */}
             <div className="me-quto">
-                <div>
+                <div className="fs-3">
                     {item.name}{" "}
                     {quantity > 1 && (
                     <span className="text-muted" style={{fontSize: 
-                    ".65rem" }}>
+                    ".25rem" }}>
                     x{quantity}
                     </span>)}
                 </div>
