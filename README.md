@@ -25,5 +25,3 @@ It correctly bundles React in production mode and optimizes the build for the be
 
 The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed! 
-
-This project focuses mainly on the functionality and context of the different components in a application, as well as how to format them and how they work together. Style of the application is not in the focus, and the application itself will be further developed in the future.
