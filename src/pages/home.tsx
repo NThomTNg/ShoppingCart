@@ -1,7 +1,8 @@
-import { Container, Row, Col, Card, Button } from 'react-bootstrap';
+import { Container, Row, Col, Card } from 'react-bootstrap';
 import backgroundImage from '/images/front.jpg';
 import { Link } from 'react-router-dom';
 import featuredProducts from '../data/featured';
+import footerImage from '/images/foot.jpg';
 
 export function Home() {
     return (
@@ -39,12 +40,12 @@ export function Home() {
                                     height: '250px', 
                                     objectFit: 'cover'
                                 }} />
-                                <Card.Body>
+                                <Card.Body className='bg-light'>
                                     <Card.Title>{product.name}</Card.Title>
                                     <Card.Text>
                                         {product.description}
                                     </Card.Text>
-                                    <Button variant="info">View Details</Button>
+                                    <button type='button' className="btn btn-outline-info" style={{ color: 'black' }}>View Details</button>
                                 </Card.Body>
                             </Card>
                         </Col>
@@ -52,15 +53,33 @@ export function Home() {
                 </Row>
             </Container>
 
-            <Container fluid className="bg-light py-5">
-                <Row>
-                    <Col className="text-center">
-                        <h2>Ready to build your dream PC?</h2>
-                        <p>We have all the components you need to get started.</p>
-                        <Link to="/store" className="btn btn-info btn-lg">Start Your Build</Link>
-                    </Col>
-                </Row>
-            </Container>
+            <Container fluid className="pb-5 pt-4">
+                <div
+                className="bg-image d-flex align-items-center justify-content-center"
+                style={{
+                    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${footerImage})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    width: '100%',
+                    height: '100%', 
+                    minHeight: '200px', 
+                 }}
+                >
+        <Row className="w-100">
+            <Col className="text-center text-white">
+                <h2>Ready to build your dream PC?</h2>
+                <p>We have all the components you need to get started.</p>
+                <Link
+                to="/store"
+                className="btn btn-outline-info btn-lg"
+                style={{ color: 'white' }}
+                >           
+                Start Your Build
+                </Link>
+            </Col>
+        </Row>
+    </div>
+</Container>
         </>
     );
 }

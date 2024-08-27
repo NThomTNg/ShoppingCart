@@ -27,7 +27,7 @@ export function CartItem({ id, quantity }: CartItemProps) {
 
             {/**Details of Item */}
             <div className="me-quto">
-                <div className="fs-3">
+                <div>
                     {item.name}{" "}
                     {quantity > 1 && (
                     <span className="text-muted" style={{fontSize: 
