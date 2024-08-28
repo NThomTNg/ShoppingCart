@@ -1,8 +1,9 @@
 import { Container, Row, Col, Card } from 'react-bootstrap';
 import backgroundImage from '/images/front.jpg';
 import { Link } from 'react-router-dom';
-import featuredProducts from '../data/featured';
+import featuredProducts from '../../data/featured';
 import footerImage from '/images/foot.jpg';
+import './home.css';
 
 export function Home() {
     return (
@@ -31,7 +32,7 @@ export function Home() {
                 <Row>
                     {featuredProducts.map((product) => (
                         <Col key={product.id} md={3} className="mb-4">
-                            <Card>
+                            <Card className='card-hover'>
                                 <Card.Img
                                 variant="top"
                                 src={product.imageUrl}
@@ -45,7 +46,14 @@ export function Home() {
                                     <Card.Text>
                                         {product.description}
                                     </Card.Text>
-                                    <button type='button' className="btn btn-outline-info" style={{ color: 'black' }}>View Details</button>
+                                <div className='d-flex justify-content-center'>
+                                <Link
+                                to={`/product/${product.id}`}
+                                className="btn btn-outline-info mx-auto"
+                                style={{ color: 'black' }}>
+                                        View Details
+                                    </Link>
+                                </div>
                                 </Card.Body>
                             </Card>
                         </Col>
