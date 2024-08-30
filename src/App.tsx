@@ -9,7 +9,7 @@ import { Navbar } from "./components/navbar/navbar.tsx";
 import { ShoppingCartProvider } from "./context/ShoppingCartContext.tsx";
 import './index.css'
 import  ProductDetails from './components/ProductDetails.tsx';
-import featuredProducts from './data/featured.tsx';
+import combinedProductData from "./data/combinedProductData.tsx";
  
 function App() {
   return (
@@ -20,7 +20,9 @@ function App() {
         <Route path="/" element={<Home />} /> 
         <Route path="/store" element={<Store />} /> 
         <Route path="/about" element={<About />} /> 
-        <Route path="/product/:id" element={<ProductDetails products={featuredProducts} />} />
+        <Route path="/product/:id"
+         element={<ProductDetails products={combinedProductData} />}
+         />
     </Routes>
   </Container>
   <Footer />
