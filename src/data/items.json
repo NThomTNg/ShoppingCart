@@ -1,33 +1,33 @@
 [
     {
         "id": 1,
-        "name": "Graphic card 1",
+        "name": "The Gigazord 200 Series GPU",
         "price": 305.99,
         "imgUrl": "./images/img1.png"
     },
     {
         "id": 2,
-        "name": "Graphic card 2",
+        "name": "Steelmount 3XX5 GPU",
         "price": 650.99,
         "imgUrl": "./images/img2.png"
     },
     {
         "id": 3,
-        "name": "Graphic card 3",
+        "name": "The Frost Dragon 3000 Freeze GPU",
         "price": 899.99,
         "imgUrl": "./images/img3.png"
     },
     {
         "id": 4,
-        "name": "Graphic card 4",
+        "name": "8020 XTR GPU",
         "price": 479.99,
         "imgUrl": "./images/img4.png"
     },
     {
         "id": 5,
-        "name": "CPU Model 1",
-        "price": 0,
-        "imgUrl": ""
+        "name": "MADCOM X4209-l0l",
+        "price": 200.99,
+        "imgUrl": "./images/cpu1.jpg"
     },
     {
         "id": 6,
@@ -55,9 +55,9 @@
     },
     {
         "id": 10,
-        "name": "RAM Model 1",
-        "price": 0,
-        "imgUrl": ""
+        "name": "XTREEM Avengers Pro RGB",
+        "price": 50.99,
+        "imgUrl": "./images/ram1.jpg"
     },
     {
         "id": 11,

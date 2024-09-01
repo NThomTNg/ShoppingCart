@@ -27,19 +27,22 @@ export function StoreItem({ id, name, price, imgUrl}:
           <Card.Img
             variant="top"
             src={imgUrl}
-            height="200px"
+            height="250px"
             style={{ objectFit: "cover" }}
           />
           {/* Item title and price */}
           <Card.Body className="d-flex flex-column">
             <Card.Title className="d-flex justify-content-between align-items-baseline mb-4">
               <span className="fs-2">{name}</span>
-              <span className="ms-2 text-muted">{formatCurrency(price)}</span>
+              <span className="ms-2">{formatCurrency(price)}</span>
             </Card.Title>
             <div className="mt-auto">
               {quantity === 0 ? (
                 // Add to cart button when item is not in cart
-                <Button className="w-100 btn-info" onClick={() => increaseCartQuantity(id)}>
+                <Button 
+                className="w-50 mx-auto d-block btn-lg btn-light btn-outline-info" 
+                style={{ color: "black"}}
+                onClick={() => increaseCartQuantity(id)}>
                   Add to cart
                 </Button>
               ) : (
@@ -52,11 +55,17 @@ export function StoreItem({ id, name, price, imgUrl}:
                     className="d-flex align-items-center justify-content-center"
                     style={{ gap: ".5rem" }}
                   >
-                    <Button className="btn-info" onClick={() => decreaseCartQuantity(id)}>-</Button>
+                    <Button 
+                    className="btn btn-light btn-outline-info" 
+                    style={{ color: "black"}}
+                    onClick={() => decreaseCartQuantity(id)}>-</Button>
                     <div>
                       <span className="fs-3">{quantity}</span> in cart
                     </div>
-                    <Button className="btn-info" onClick={() => increaseCartQuantity(id)}>+</Button>
+                    <Button 
+                    className="btn btn-light btn-outline-info" 
+                    style={{ color: "black"}}
+                    onClick={() => increaseCartQuantity(id)}>+</Button>
                   </div>
                   <Button
                     onClick={() => removeFromCart(id)}

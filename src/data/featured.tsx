@@ -11,14 +11,14 @@ const featuredProducts = [
       name: "Frost Dragon 3000 Freeze",
       description: "Graphic power on steroids, enough power to handle minesweepers in 4K!",
       imageUrl: "./images/img3.png",
-      price: 500.99,
+      price: 899.99,
     },
     {
       id: 3,
       name: "MADCOM X4209-l0l",
       description: "Enter the new age of processing power with the MADCOM X4209-l0l!",
       imageUrl: "./images/cpu1.jpg",
-      price: 99.99,
+      price: 200.99,
     },
     {
       id: 4,

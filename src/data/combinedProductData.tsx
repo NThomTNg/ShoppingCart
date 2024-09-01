@@ -6,8 +6,7 @@ const combinedProductData = featuredProducts.map(product => {
   return {
     ...product,
     long_description: description ? description.long_description : '',
-    feature1: description ? description.feature1: '',
-    feature2: description ? description.feature2: '',
+    feature: description ? description.feature: '',
     performance: description ? description.performance: '',
     end: description ? description.end: '',
   };
