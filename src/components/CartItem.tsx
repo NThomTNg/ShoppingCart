@@ -21,16 +21,16 @@ export function CartItem({ id, quantity }: CartItemProps) {
           {/** Item image */}
           <img
               src={item.imgUrl}
-              alt={item.name} // Added alt text for accessibility
+              alt={item.name}
               style={{ width: "125px", height: "75px", objectFit: "cover" }} />
 
           {/** Details of Item */}
-          <div className="me-auto"> {/* Fixed typo from "me-quto" to "me-auto" */}
+          <div className="me-auto"> 
               <div>
                   {item.name}{" "}
                   {quantity > 1 && (
                       <span className="text-muted" style={{ fontSize: ".75rem" }}>
-                          x{quantity} {/* Adjusted fontSize for better visibility */}
+                          x{quantity}
                       </span>
                   )}
               </div>
