@@ -31,27 +31,27 @@
     },
     {
         "id": 6,
-        "name": "CPU Model 2",
-        "price": 0,
-        "imgUrl": ""
+        "name": "DMA NEZYR 0065X",
+        "price": 150.99,
+        "imgUrl": "./images/CPU2.jpg"
     },
     {
         "id": 7,
-        "name": "CPU Model 3",
-        "price": 0,
-        "imgUrl": ""
+        "name": "JUSTAARM XX4",
+        "price": 99.99,
+        "imgUrl": "./images/CPU3.jpg"
     },
     {
         "id": 8,
-        "name": "Motherboard Model 1",
-        "price": 0,
-        "imgUrl": ""
+        "name": "Strixxx 95S",
+        "price": 70.99,
+        "imgUrl": "./images/MotherBoard1.jpg"
     },
     {
         "id": 9,
-        "name": "Motherboard Model 1",
-        "price": 0,
-        "imgUrl": ""
+        "name": "Bald Eagle HAWK T20",
+        "price": 100.99,
+        "imgUrl": "./images/MotherBoard2.jpg"
     },
     {
         "id": 10,
@@ -61,14 +61,14 @@
     },
     {
         "id": 11,
-        "name": "RAM Model 2",
-        "price": 0,
-        "imgUrl": ""
+        "name": "Not G.skill Tri Mark 7",
+        "price": 60.91,
+        "imgUrl": "./images/RAM2.jpg"
     },
     {
         "id": 12,
-        "name": "Computer Case Model 1001",
-        "price": 0,
-        "imgUrl": ""
+        "name": "Fannypacker case model 80",
+        "price": 100.09,
+        "imgUrl": "./images/PcCase.jpg"
     }
 ]
