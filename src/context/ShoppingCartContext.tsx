@@ -1,6 +1,7 @@
 import { ReactNode, createContext, useContext, useState } from "react";
 import { ShoppingCart } from "../components/ShoppingCart";
 import { useLocalStorage } from "../hooks/useLocalStorage";
+import storeItems from "../data/items.json";
 
 /* Props for ShoppingCartProvider.*/
 type ShoppingCartProviderProps = {
@@ -22,8 +23,8 @@ type ShoppingCartContext = {
   removeFromCart: (id: number) => void;
   cartQuantity: number;
   cartItems: CartItem[];
+  total: number;
 };
-
 
 /* Create the context with an empty object as the default value.*/
 const ShoppingCartContext = createContext({} as ShoppingCartContext);
@@ -40,6 +41,12 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
 
 /* Calculate the quantity of items din the cart*/
   const cartQuantity = cartItems.reduce((quantity, item) => item.quantity + quantity, 0);
+
+/**Calculate the total price of items in the cart */
+  const total = cartItems.reduce((total, cartItem) => {
+    const item = storeItems.find(i => i.id === cartItem.id);
+    return total + (item?.price || 0) * cartItem.quantity;
+  }, 0);
 
 /* Opens and closes the cart.*/
   const openCart = () => setIsOpen(true);
@@ -100,6 +107,7 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
         closeCart,
         cartItems,
         cartQuantity,
+        total,
       }}
     >
       {children}
