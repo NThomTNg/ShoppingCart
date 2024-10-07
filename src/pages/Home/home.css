@@ -3,6 +3,10 @@
 }
 
 .card-hover:hover {
-    transform: scale(1.05); /* Slightly expand the card */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Add a subtle shadow effect */
+    transform: scale(1.05); 
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
+}
+
+.custom-modal-footer {
+    border-top: none;
 }

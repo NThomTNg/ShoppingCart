@@ -28,7 +28,8 @@ interface PaymentInfo {
 
 const Checkout: React.FC = () => {
   const [value, setValue] = useState<Value>(new Date());
-  const { cartItems, total } = useShoppingCart();
+  const { cartItems, total, clearCart } = useShoppingCart();
+  const [isLoading, setIsLoading] = useState(false);
   const [deliveryInfo, setDeliveryInfo] = useState<DeliveryInfo>({
     firstName: '',
     lastName: '',
@@ -44,6 +45,7 @@ const Checkout: React.FC = () => {
     cvv: '',
   });
   const [agreeToTerms, setAgreeToTerms] = useState(false);
+  const navigate = useNavigate();
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -52,8 +54,26 @@ const Checkout: React.FC = () => {
 
   const handlePaymentInfoChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setPaymentInfo(prev => ({ ...prev, [name]: value }));
+    
+    if (name === 'cardNumber') {
+      const cleaned = value.replace(/\D/g, '');
+      const formatted = cleaned.slice(0, 16).replace(/(\d{4})(?=\d)/g, '$1 ');
+      setPaymentInfo(prev => ({ ...prev, [name]: formatted }));
+    } else if (name === 'cvv') {
+      const cvv = value.replace(/\D/g, '').slice(0, 3);
+      setPaymentInfo(prev => ({ ...prev, [name]: cvv }));
+    } else if (name === 'expiryDate') {
+      const cleaned = value.replace(/\D/g, '');
+      let formatted = cleaned.slice(0, 4);
+      if (formatted.length > 2) {
+        formatted = formatted.slice(0, 2) + '/' + formatted.slice(2);
+      }
+      setPaymentInfo(prev => ({ ...prev, [name]: formatted }));
+    } else {
+      setPaymentInfo(prev => ({ ...prev, [name]: value }));
+    }
   };
+
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -65,12 +85,11 @@ const Checkout: React.FC = () => {
     console.log("Checkout data:", { deliveryInfo, paymentInfo, deliveryDate: value });
     setTimeout(() => {
       setIsLoading(false);
-      navigate('/');
-    }, 2000);
+      clearCart();
+      navigate('/', { state: { orderSent: true } });
+    }, 3000);
   };
 
-  const navigate = useNavigate();
-  const [isLoading, setIsLoading] = useState(false);
 
   return (
     <div className="container py-5">
@@ -153,6 +172,7 @@ const Checkout: React.FC = () => {
                   type="tel"
                   className="form-control"
                   id="phoneNumber"
+                  maxLength={8}
                   placeholder='123-456-7890'
                   name="phoneNumber"
                   value={deliveryInfo.phoneNumber}
@@ -222,6 +242,7 @@ const Checkout: React.FC = () => {
                   id="expiryDate"
                   name="expiryDate"
                   placeholder="MM/YY"
+                  maxLength={5}
                   value={paymentInfo.expiryDate}
                   onChange={handlePaymentInfoChange}
                   required
@@ -235,6 +256,7 @@ const Checkout: React.FC = () => {
                   id="cvv"
                   name="cvv"
                   placeholder='999'
+                  maxLength={3}
                   value={paymentInfo.cvv}
                   onChange={handlePaymentInfoChange}
                   required

@@ -21,6 +21,7 @@ type ShoppingCartContext = {
   increaseCartQuantity: (id: number) => void;
   decreaseCartQuantity: (id: number) => void;
   removeFromCart: (id: number) => void;
+  clearCart: () => void;
   cartQuantity: number;
   cartItems: CartItem[];
   total: number;
@@ -55,6 +56,11 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
 /* Gets the quantity of a spesific item in the cart.*/
   function getItemQuantity(id: number) {
     return cartItems.find(item => item.id === id)?.quantity || 0;
+  }
+  
+ /* Clear all items from the cart */
+  function clearCart() {
+    setCartItems([]);
   }
 
 /* Increase the quantity of a item in the cart.*/
@@ -105,6 +111,7 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
         removeFromCart,
         openCart,
         closeCart,
+        clearCart,
         cartItems,
         cartQuantity,
         total,

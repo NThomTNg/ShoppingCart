@@ -1,13 +1,39 @@
-import { Container, Row, Col, Card } from 'react-bootstrap';
+import { Container, Row, Col, Card, Modal, Button } from 'react-bootstrap';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 import backgroundImage from '/images/front.jpg';
-import { Link } from 'react-router-dom';
 import featuredProducts from '../../data/featured';
 import footerImage from '/images/foot.jpg';
 import './home.css';
 
 export function Home() {
+    const location = useLocation();
+    const navigate = useNavigate();
+    const [showModal, setShowModal] = useState(false);
+
+    useEffect(() => {
+        if (location.state?.orderSent) {
+            setShowModal(true);
+            navigate(location.pathname, { replace: true, state: {} });
+        }
+    }, [location.state, navigate, location.pathname]);
+
+    const handleClose = () => setShowModal(false);
+
     return (
         <>
+            <Modal show={showModal} onHide={handleClose}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Order Confirmation</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>Your order has been sent successfully! 😁</Modal.Body>
+                <Modal.Footer className='custom-modal-footer'>
+                    <Button variant="btn btn-outline-info text-dark" onClick={handleClose}>
+                        Close
+                    </Button>
+                </Modal.Footer>
+            </Modal>
+            
             <Container fluid className="p-0">
                 <div
                     className="bg-image"
