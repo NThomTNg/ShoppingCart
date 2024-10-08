@@ -1,27 +1,39 @@
-# React + TypeScript + Vite
+<h1>ShoppingCart</h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h2>Description</h2>
 
-## Available Scripts
+<p>This ShoppingCart application emulates a real e-commerce website where you are able to buy different types of computer hardware. If you are in the market for building your very own pc, visit ComStarCenter for the best deals. You will find all you need, from powerful GPU's to insanly efficient CPU's. The main functionality of the project is to simulate the logic and context of a shoppingcart, where customers are able to add items from the store page into their shopping cart. They can then continue on to the checkout page, where they will be able to write in their information before checking out.</p>
 
-In the project directory, you can run:
+<h2>Table of Contents</h2>
 
-### `npm start`
+<h3>Intallation</h3>
 
-Runs the app in the development mode.\
-Open [http://localhost:5173](http://localhost:5173) to view it in your browser.
+|How to install to local pc
+|--------------------
+|`git clone ShoppingCart` for å kjøre databasen|
+|`npm ci` to install all the necessary packages|
+|`npm run dev` to run the application locally|
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<h3>Features</h3>
 
-### `npm test`
+<ul>
+    <li>Feature 1: Being able to add a item from the items array and put it into a shopping cart</li>
+    <li>Feature 2: Able to add and remove the amount of items in cart</li>
+    <li>Feature 3: Clicking on the featured items on home will bring you to a dedicated detailed page about that item</li>
+    <li>Feature 4: Simulating a checkout experience after adding items into cart, where items selected will be displayed</li>
+    <li>Feature 5: Display different types of items by using simple json data to simulate a database</li>
+</ul>
 
-Launches the test runner in the interactive watch mode.\
+<h3>Technologies used</h3>
 
-### `npm run build`
+[![Tech](https://skillicons.dev/icons?i=js,ts,react,bootstrap,vite)](https://skillicons.dev)
+<br>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<h2>Implementations for the future</h2>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed! 
+<ul>
+  <li>Better documentation in the code itself</li>
+  <li>Better security against scripting and patch up vulnerabilities</li>
+  <li>Requirements for form input (checkout)</li>
+  <li>Implementation of a real database connection with the app</li>
+</ul>
