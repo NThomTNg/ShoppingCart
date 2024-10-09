@@ -9,8 +9,9 @@ import './home.css';
 export function Home() {
     const location = useLocation();
     const navigate = useNavigate();
-    const [showModal, setShowModal] = useState(false);
+    const [showModal, setShowModal] = useState(false); // state to show the modal
 
+    // useEffect hook to check if the orderSent state is true
     useEffect(() => {
         if (location.state?.orderSent) {
             setShowModal(true);
@@ -22,6 +23,7 @@ export function Home() {
 
     return (
         <>
+        {/* Modal to show the order confirmation */}
             <Modal show={showModal} onHide={handleClose}>
                 <Modal.Header closeButton>
                     <Modal.Title>Order Confirmation</Modal.Title>
@@ -34,6 +36,7 @@ export function Home() {
                 </Modal.Footer>
             </Modal>
             
+            {/* Banner Section */}
             <Container fluid className="p-0">
                 <div
                     className="bg-image"
@@ -53,9 +56,11 @@ export function Home() {
                 </div>
             </Container>
 
+            {/* Featured Products Section */}
             <Container className="my-5">
                 <h2 className="text-center mb-4">Featured Products</h2>
                 <Row>
+                    {/* Loop through the featured items and display them */}
                     {featuredProducts.map((product) => (
                         <Col key={product.id} md={3} className="mb-4">
                             <Card className='card-hover'>
@@ -87,6 +92,7 @@ export function Home() {
                 </Row>
             </Container>
 
+            {/* Banner bellow */}
             <Container fluid className="pb-5 pt-4">
                 <div
                 className="bg-image d-flex align-items-center justify-content-center"

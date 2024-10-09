@@ -2,6 +2,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom'
 import './Footer.css';
 
+// Footer component
 const Footer = () => (
   <footer className="app__footer bg-dark text-light py-5">
     <Container>

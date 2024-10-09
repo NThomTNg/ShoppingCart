@@ -33,7 +33,6 @@
 
 <ul>
   <li>Better documentation in the code itself</li>
-  <li>Better security against scripting and patch up vulnerabilities</li>
-  <li>Requirements for form input (checkout)</li>
+  <li>Set up unit tests to see if features are working</li>
   <li>Implementation of a real database connection with the app</li>
 </ul>

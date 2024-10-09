@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom"
 import { useShoppingCart } from "../../context/ShoppingCartContext";
 import './navbar.css';
 
-/**Navigation bar for the application */
+/* Navigation bar for the application */
 export function Navbar () {
     // Gets the openCart and cartQuantity functions from shoppingCartContext
     const { openCart, cartQuantity } = useShoppingCart ()

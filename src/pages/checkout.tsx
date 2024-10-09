@@ -1,16 +1,18 @@
-import React, { useState } from 'react';
-import Calendar from 'react-calendar';
+import 'bootstrap-icons/font/bootstrap-icons.css';
 import 'react-calendar/dist/Calendar.css'; 
+import Calendar from 'react-calendar';
+import storeItems from "../data/items.json";
+import validator from 'validator';
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { useShoppingCart } from "../context/ShoppingCartContext";
 import { formatCurrency } from "../utilities/formatCurrency";
-import storeItems from "../data/items.json";
-import { Link, useNavigate } from 'react-router-dom';
-import 'bootstrap-icons/font/bootstrap-icons.css';
 
-
-type ValuePiece = Date | null;
+// Define the value piece and value types for the calendar
+type ValuePiece = Date | null; 
 type Value = ValuePiece | [ValuePiece, ValuePiece];
 
+// Define the interfaces for the delivery and payment information
 interface DeliveryInfo {
   firstName: string;
   lastName: string;
@@ -26,6 +28,7 @@ interface PaymentInfo {
   cvv: string;
 }
 
+// Define the Checkout component
 const Checkout: React.FC = () => {
   const [value, setValue] = useState<Value>(new Date());
   const { cartItems, total, clearCart } = useShoppingCart();
@@ -38,6 +41,7 @@ const Checkout: React.FC = () => {
     emailAddress: '',
   });
 
+  // Define how the payment information is stored
   const [paymentInfo, setPaymentInfo] = useState<PaymentInfo>({
     cardNumber: '',
     cardName: '',
@@ -47,12 +51,19 @@ const Checkout: React.FC = () => {
   const [agreeToTerms, setAgreeToTerms] = useState(false);
   const navigate = useNavigate();
 
+  // Define the what happens when the input changes
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setDeliveryInfo(prev => ({ ...prev, [name]: value }));
   };
 
-  const handlePaymentInfoChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  // Checks if the first character is uppercase
+  const isFirstCharacterUpperCase = (str: string) => {
+    return str[0] === str[0].toUpperCase();
+  };
+
+  // Define how the payment information changes
+  const handlePaymentInfoChange = (e: React.ChangeEvent<HTMLInputElement>) => { 
     const { name, value } = e.target;
     
     if (name === 'cardNumber') {
@@ -74,13 +85,31 @@ const Checkout: React.FC = () => {
     }
   };
 
-
+  // Define requirements for the form to be submitted
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!agreeToTerms) {
       alert("Please agree to the terms of service before proceeding.");
       return;
     }
+    if (!validator.isAlpha(deliveryInfo.firstName) || !validator.isAlpha(deliveryInfo.lastName)) {
+      alert("Invalid name");
+      return;
+    }
+    if (!isFirstCharacterUpperCase(deliveryInfo.firstName) || !isFirstCharacterUpperCase(deliveryInfo.lastName)) {
+      alert("Name must start with a capital letter");
+      return;
+    }
+    if (!validator.isEmail(deliveryInfo.emailAddress)) {
+      alert("Invalid email address");
+      return;
+    }
+    if (!validator.isNumeric(deliveryInfo.phoneNumber)) {
+      alert("Invalid phone number");
+      return;
+    }
+
+  // Define what happens when the form is submitted
     setIsLoading(true);
     console.log("Checkout data:", { deliveryInfo, paymentInfo, deliveryDate: value });
     setTimeout(() => {
@@ -104,8 +133,9 @@ const Checkout: React.FC = () => {
               <span className="text-muted">Your cart</span>
               <span className="badge bg-secondary rounded-pill">{cartItems.length}</span>
             </h4>
+            {/* Maps through the items from cart and displays them */}
             <ul className="list-group mb-3">
-              {cartItems.map(cartItem => {
+              {cartItems.map(cartItem => { 
                 const item = storeItems.find(item => item.id === cartItem.id);
                 if (!item) return null;
                 return (
@@ -124,6 +154,7 @@ const Checkout: React.FC = () => {
               </li>
             </ul>
           </div>
+          {/* Form for the delivery information */}
           <div className="col-md-8 order-md-1">
             <h4 className="mb-3">Delivery Information</h4>
             <div className="row g-3">
@@ -172,6 +203,7 @@ const Checkout: React.FC = () => {
                   type="tel"
                   className="form-control"
                   id="phoneNumber"
+                  minLength={8}
                   maxLength={8}
                   placeholder='123-456-7890'
                   name="phoneNumber"
